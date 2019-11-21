@@ -1,0 +1,1 @@
+module.exports = 'sk_test_VlMTEw7uY0Cr34VQjI2Ci9ev00UqFattoU'
