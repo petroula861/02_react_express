@@ -21,6 +21,7 @@ class Register extends React.Component{
 
   getEmail=(e)=>{
     this.setState({admin:e.target.value})
+
   }
 
   getPassword=(e)=>{

@@ -17,6 +17,7 @@ class Catalog extends React.Component{
  componentDidMount(){
    this.props.revertinitialpage()
    this.props.tabcolor("catalog")
+   this.props.getProducts()
  }
 
   render(){
@@ -25,7 +26,7 @@ class Catalog extends React.Component{
              {this.props.products.map((item,index)=>
              <div class="productcontainer">       
                <div class="product">
-                <strong>{item.name}<br/><div class="productprice">${item.price}</div></strong>
+                <strong class="name">{item.name}<br/><div class="productprice">${item.price}</div></strong>
                 <img class="imgproduct" src={item.image}></img><br/>
                 <strong>description:</strong>
                 <span class="description">{item.description}</span><br/>

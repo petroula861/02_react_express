@@ -97,20 +97,21 @@ class CheckoutForm extends Component {
         </div>
         {/***************************** THIRD ROW *****************************/}
         <div className="split-form">
-          <label>
+          <label class="thirdrow">
             Card number
             <CardNumberElement onChange={this.handleChange} />
           </label>
           <label>
-            Expiration date
-            <CardExpiryElement onChange={this.handleChange} />
+            CVC
+            <CardCVCElement onChange={this.handleChange} />
           </label>
+
         </div>
         {/*************************** FOURTH ROW ****************************/}
         <div className="split-form">
           <label>
-            CVC
-            <CardCVCElement onChange={this.handleChange} />
+            Expiration date
+            <CardExpiryElement  onChange={this.handleChange} />
           </label>
           <label>
             Postal code

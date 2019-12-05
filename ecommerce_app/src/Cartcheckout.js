@@ -17,7 +17,7 @@ componentDidMount(){
           </Elements>
         </div>
       </StripeProvider>
-    )</div>
+    </div>
   }
 }
 

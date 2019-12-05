@@ -179,13 +179,13 @@ return <div class="productslist">
     </select>
    <div>{this.state.displayproducts? <ul>
                                      {this.state.products.map((item,index)=>
-                                     <li key={index}><strong>category: </strong>{item.category}<br/><strong>name: </strong>{item.name}<br/><strong>image: </strong>{item.image}<br/><strong>price: </strong>{item.price}<br/><strong>product id: </strong>{item._id}<br/></li>
+                                        <li key={index}><strong>category: </strong>{item.category}<br/><strong>name: </strong>{item.name}<br/><strong>image: </strong>{item.image}<br/><strong>price: </strong>{item.price}<br/><strong>product id: </strong>{item._id}<br/></li>
                                       )}</ul>:null}
     </div>
     <div>
      {this.state.displayoneproduct?<form onSubmit={this.getProductbyid}>
                                       <label>product ID</label>
-                                      <input onChange={this.setProduct}></input>
+                                        <input onChange={this.setProduct}></input>
                                       <button >search!</button>
                                       {this.state.resultoneproduct.ok?<div><div>{this.state.resultoneproduct.products.category}</div><div>{this.state.resultoneproduct.products.name}</div><div>{this.state.resultoneproduct.products.image}</div><div>{this.state.resultoneproduct.products.description}</div><div>{this.state.resultoneproduct.products.quantity}</div><div>{this.state.resultoneproduct.products.price}</div></div>:<div>{this.state.resultoneproduct.message}</div>}
                                     </form>:null}   

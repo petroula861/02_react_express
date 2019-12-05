@@ -145,10 +145,10 @@ return <div class="cartcontainer">
             <div class="list">
               <div class="firstrow">
                 <li value={index}></li>
-                <i class="fa fa-trash" style={{fontSize:'25px',paddingTop:'5px'}} onClick={this.removeproduct} ></i><span style={{marginLeft:'10px'}}>{item.name}</span>
-                <span style={{width:'100px',float:'right'}}>{(item.finalprice).toFixed(2)} $</span></div>
-              <div class="secondrow"><button style={{marginLeft:'30px'}} className={index} onClick={this.decreaseCount}>-</button>{item.quantity}<button className={index} onClick={this.increaseCount}>+</button>
-                 <span>{this.state.message[index]}</span> 
+                <i class="fa fa-trash" style={{fontSize:'25px'}} onClick={this.removeproduct} ></i><span style={{marginLeft:'1vw'}}>{item.name}</span>
+                <span style={{float:'right'}}>{(item.finalprice).toFixed(2)} $</span></div>
+              <div class="secondrow"><button className={index} onClick={this.decreaseCount}>-</button><span>{item.quantity}</span><button className={index} onClick={this.increaseCount}>+</button>
+                 <span class="cartlistmessage">{this.state.message[index]}</span> 
               </div>           
             </div>
             )}

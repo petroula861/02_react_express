@@ -3,7 +3,7 @@ import './App.css';
 import Register from './Register.js'
 import Admin from './Admin.js'
 import Cart from './Cart.js'
-
+import Secretpage from './secretPage.js'
 import Catalog from './Catalog.js'
 import Navbar from './Navbar.js'
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
@@ -18,7 +18,8 @@ class App extends React.Component{
   state={products:[],cartproducts:[],initialpage:true,counter:0,tab:"true"}
 
   componentWillMount=()=>{
-    this.getProducts()
+    // this.getProducts()
+
   }
 
 tabcolor=(tab)=>{
@@ -70,11 +71,14 @@ addToCart=(e)=>{
 
 }
 
+secretpage=(status)=>{
+//doesnt do anything,printed because it is called in SecretPage.js in componentDidMount
+}
+
+
 
   render(){
-  return <div>
-          {/* <style>@import url('https://fonts.googleapis.com/css?family=McLaren&display=swap');
-           </style> */}
+  return<div className="App">
           <Router>
           <div className="upperpart">
             <h4>Petras e-shop</h4>
@@ -84,10 +88,12 @@ addToCart=(e)=>{
            <Link  class={String(this.state.tab)}  exact to={"/"}>Catalog</Link>
            <Link  class={String(!this.state.tab)}  exact to={"/Admin"}>Admin Page</Link>
           </div>
-           <Route exact path="/" render={()=>(<Catalog tabcolor={this.tabcolor} products={this.state.products} addToCart={this.addToCart} revertinitialpage={this.revertinitialpage}/>)}></Route>
-           <Route exact path="/Admin" render={()=>(this.state.initialpage?<Admin revert={this.revert} tabcolor={this.tabcolor}/>:<Redirect to="/"/>)}></Route>
-           <Route exact path="/Cart" render={()=>(this.state.initialpage?<Cart revert={this.revert} cartproducts={this.state.cartproducts}/>:<Redirect to="/"/>)}/>
+          <Route exact path="/Admin/secretPage"  render={props=><Secretpage {...props} secretpage={this.secretpage}/>}  />
 
+           <Route exact path="/" render={()=>(<Catalog tabcolor={this.tabcolor} products={this.state.products} addToCart={this.addToCart} revertinitialpage={this.revertinitialpage} getProducts={this.getProducts}/>)}></Route>
+           <Route exact path="/Admin/" render={()=>(this.state.initialpage?<Admin  revert={this.revert} tabcolor={this.tabcolor}/>:<Redirect to="/"/>)}></Route>
+           <Route exact path="/Cart" render={()=>(this.state.initialpage?<Cart revert={this.revert} cartproducts={this.state.cartproducts}/>:<Redirect to="/"/>)}/>
+           
           </Router>         
          </div>
   }

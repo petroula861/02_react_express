@@ -1,6 +1,6 @@
 import React from 'react'
 import Register from './Register.js'
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 
 import Login from './Login.js'
 import Navbar from './Navbar.js'
@@ -8,10 +8,17 @@ import Secretpage from './secretPage.js'
 
 class Admin extends React.Component{
 
-state=({secretpage:false})
+state=({secretpage:false,token:""})
+
 
  componentWillMount=()=>{
-this.props.tabcolor("admin")
+    this.props.tabcolor("admin")
+ 
+}
+
+ secretpage=(status)=>{
+     this.setState({secretpage:status})
+
  }
 
 
@@ -24,9 +31,10 @@ return <div class="admincontainer">
 {!this.state.secretpage?<Navbar/>:null}
 <div class="loginregister">
 <Route exact path="/Admin/Register"  component={Register}/>
-<Route exact path="/Admin/" component={Login}/> 
+<Route exact path="/Admin/" component={Login}/>
 </div>
-<Route exact path="/Admin/secretPage"  component={Secretpage} />
+
+<Route exact path="/Admin/secretPage"  render={props=><Secretpage {...props} secretpage={this.secretpage}/>}/> 
 </Router>
 </div>
 
