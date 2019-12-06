@@ -7,7 +7,7 @@ class Register extends React.Component{
   state={admin:"",password:"",password2:"",success:"",message:""}
 
   registerAdmin=async userdata =>{
-    let url='http://localhost:3001/admin/register'
+    let url=`http://${process.env.REACT_APP_API_HOST}:3001/admin/register`
 
     axios.post(url,userdata)
     .then(res=>{

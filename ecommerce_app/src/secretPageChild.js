@@ -53,7 +53,7 @@ class Secretpagechild extends React.Component{
         e.preventDefault()
         const {oneproduct}=this.state
         try{
-            const res= await Axios.get('http://localhost:3001/products/product_id/'+oneproduct)
+            const res= await Axios.get(`http://${process.env.REACT_APP_API_HOST}:3001/products/product_id/`+oneproduct)
             this.setState({resultoneproduct:res.data})           
         }
         catch(e){
@@ -65,7 +65,7 @@ class Secretpagechild extends React.Component{
 // --------Get all products--------------
     getProducts= async ()=>{
         try{
-            const res = await Axios.get('http://localhost:3001/products/')
+            const res = await Axios.get(`http://${process.env.REACT_APP_API_HOST}:3001/products/`)
                console.log(res.data.products)
                 this.setState({products:res.data.products})
                  this.setState({displayproducts:true})
@@ -107,7 +107,7 @@ addNewProduct = async (e)=>{
     e.preventDefault()
     const newproduct={category:this.state.newProductCategory,name:this.state.newProductName,price:this.state.newProductPrice,image:this.state.newProductImage,description:this.state.newProductDescription,quantity:this.state.newProductQuantity}
     try{
-     const res= await Axios.post('http://localhost:3001/products/add',newproduct)
+     const res= await Axios.post(`http://${process.env.REACT_APP_API_HOST}:3001/products/add`,newproduct)
      console.log(res)
          this.setState({NewProductMessage:res.data.message})
     
@@ -126,7 +126,7 @@ deleteProductbyid= async (e)=>{
     e.preventDefault()
     const {oneproduct}=this.state
     try{
-        const res= await Axios.delete('http://localhost:3001/products/delete/'+oneproduct)
+        const res= await Axios.delete(`http://${process.env.REACT_APP_API_HOST}:3001/products/delete/`+oneproduct)
         this.setState({resultoneproduct:res.data})           
     }
     catch(e){
@@ -143,7 +143,7 @@ updateProductbyid=async (e)=>{
     e.preventDefault()
     const {oneproduct}=this.state
     try{
-        const res= await Axios.get('http://localhost:3001/products/product_id/'+oneproduct)
+        const res= await Axios.get(`http://${process.env.REACT_APP_API_HOST}:3001/products/product_id/`+oneproduct)
         this.setState({resultoneproduct:res.data})           
     }
     catch(e){
@@ -156,7 +156,7 @@ updateProductbyid=async (e)=>{
           const {name,category,price,image,description,quantity}=this.state.resultoneproduct.products
           const product={name:name,category:category,price:price,image:image,description:description,quantity:quantity,newname:this.state.newProductName,newcategory:this.state.newProductCategory,newprice:this.state.newProductPrice,newimage:this.state.newProductImage,newdescription:this.state.newProductDescription,newquantity:this.state.newProductQuantity}
            console.log("product",product)
-          const res2= await Axios.post('http://localhost:3001/products/update/',product)
+          const res2= await Axios.post(`http://${process.env.REACT_APP_API_HOST}:3001/products/update/`,product)
           this.setState({updateProductmessage:res2.data.message})
     }
     else{

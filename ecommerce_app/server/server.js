@@ -48,6 +48,9 @@ app.use('/payment',payment)
 app.use('/emails', email)
 //app.use('/categories', categoriesRoute);
 
+// ========//
+require('dotenv').config();
+
 // =============== START SERVER =====================
 
 app.listen(3001,()=>console.log('listening on port 3001'))

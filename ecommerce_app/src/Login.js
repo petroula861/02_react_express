@@ -30,7 +30,7 @@ handleSubmit=(e)=>{
   }
 
 loginAdmin= async userdata=>{
-    let url='http://localhost:3001/admin/login'
+    let url=`http://${process.env.REACT_APP_API_HOST}:3001/admin/login`
 
     axios.post(url,userdata)
     .then(res=>{

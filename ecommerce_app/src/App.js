@@ -18,7 +18,6 @@ class App extends React.Component{
   state={products:[],cartproducts:[],initialpage:true,counter:0,tab:"true"}
 
   componentWillMount=()=>{
-    // this.getProducts()
 
   }
 
@@ -39,7 +38,7 @@ revert=()=>{
 
 getProducts= async ()=>{
     try{
-        const res = await Axios.get('http://localhost:3001/products/')
+        const res = await Axios.get(`http://${process.env.REACT_APP_API_HOST}:3001/products/`)
            console.log(res.data.products)
             this.setState({products:res.data.products})
 

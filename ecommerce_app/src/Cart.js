@@ -3,7 +3,6 @@ import Cartproducts from './Cartproducts.js'
 import Cartcheckout from './Cartcheckout.js'
 import Cartconfirmation from "./Cartconfirmation.js";
 import './App.css';
-import Navbarcart from './Navbarcart.js'
 import {BrowserRouter as Router,Redirect,Button, Route} from 'react-router-dom'
 import {NavLink} from "react-router-dom" 
 

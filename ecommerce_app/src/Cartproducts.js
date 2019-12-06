@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css';
-import Navbarcart from './Navbarcart.js'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import FlipMove from "react-flip-move"
 import axios from 'axios'
@@ -120,7 +119,7 @@ checkstock=()=>{
   var {cartproducts}=this.state
   cartproducts.map((item,index)=>{
   
-  axios.post('http://localhost:3001/cart',item)
+  axios.post(`http://${process.env.REACT_APP_API_HOST}:3001/cart`,item)
   .then(res=>{
     ok.push(res.data.ok)
     message.push(res.data.message)

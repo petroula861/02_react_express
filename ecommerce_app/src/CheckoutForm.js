@@ -36,7 +36,7 @@ class CheckoutForm extends Component {
     if (this.props.stripe) {
       const { token } = await this.props.stripe.createToken({ name:fullname, email });
       //console.log('token ====>',token)
-      const response = await axios.post(`http://localhost:3001/payment/charge`, {
+      const response = await axios.post(`http://${process.env.REACT_APP_API_HOST}:3001/payment/charge`, {
         token_id: token.id,
         amount,
         name,
@@ -49,7 +49,7 @@ class CheckoutForm extends Component {
       if(response.data.status === "succeeded" ){
  //          alert("Payment successful")
               this.props.getconfirmationstatus("Payment is successful")
-              const res = await axios.post(`http://localhost:3001/emails/confirmation`, {email:this.state.email,name:this.state.lastname})
+              const res = await axios.post(`http://${process.env.REACT_APP_API_HOST}:3001/emails/confirmation`, {email:this.state.email,name:this.state.lastname})
               console.log("email confirmation response",res)
             }   
       else{  
