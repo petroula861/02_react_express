@@ -22,7 +22,7 @@ class Secretpage extends React.Component{
 
 	 verify_token = async (token) => {
 	 	try{
-            const response = await Axios.post('http://localhost:3001/admin/verify_token',{token})
+            const response = await Axios.post(`http://${process.env.REACT_APP_API_HOST}:3001/admin/verify_token`,{token})
             console.log("verify_token respone",response)
             return !response.data.ok
             ?
