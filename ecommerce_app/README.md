@@ -24,5 +24,5 @@ React, Javascript, Node.js, MongoDB, Express
 
 ### Deployment
 
-webapp deployed on DigitalOcean: http://188.166.7.202:3000/
+The webapp was deployed on DigitalOcean: http://188.166.7.202:3000/
 
